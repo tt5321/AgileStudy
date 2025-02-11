@@ -1,4 +1,4 @@
-# AgileStudy
+# AgileStudy Planner
 ## Setting up
 ## Coder
 ## Implementations
