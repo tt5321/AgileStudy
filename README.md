@@ -3,7 +3,7 @@ A study planner system that automatically schedules study time on your calendar 
 ## Setting up
 TBD
 ## Coder
-Tiantian Ma
+Tiantian
 ## Features
 1. When a user marks an assignment due-date event on the calendar, the system automatically analyzes the deadlie, the assignement description, the user’s desired study quality, and creates a personalized study plan. It automatically allocates study sessions on the calendar without conflicting with existing events.
 2. Users can set/modify preferences, including blocked study times, preferred study times, minimum study session duration.
