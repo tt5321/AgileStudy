@@ -31,8 +31,10 @@ Tiantian
     StudySession.js
     TimeSlot.js
     UserEvent.js
+    
 **Test**
 main.js
+
 **Documentation**
 README.md
 OOPDoc.md
