@@ -21,23 +21,25 @@ Tiantian
 ## Implementations
 **Classes**
 ./solutions/
-    Algorithm.js
-    AssignmentEvent.js
-    Feedback.js
-    Planner.js
-    Preference.js
-    Scheduler.js
-    StudyPlan.js
-    StudySession.js
-    TimeSlot.js
+
+    Algorithm.js,
+    AssignmentEvent.js,
+    Feedback.js,
+    Planner.js,
+    Preference.js,
+    Scheduler.js,
+    StudyPlan.js,
+    StudySession.js,
+    TimeSlot.js,
     UserEvent.js
-    
+
 **Test**
 main.js
 
 **Documentation**
-README.md
-OOPDoc.md
+
+README.md,
+OOPDoc.md,
 Reference_For_Code.md
 
 ## Links
