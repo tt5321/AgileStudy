@@ -1,9 +1,9 @@
-import AssignmentEvent from "./AssignmentEvent";
-import StudySession from "./StudySession";
+import AssignmentEvent from "./AssignmentEvent.js";
+import StudySession from "./StudySession.js";
 
 /**
  * An StudyPlan for an assignment event
- * @class
+ * @class StudyPlan
  */
 export default class StudyPlan{
     _assignment;

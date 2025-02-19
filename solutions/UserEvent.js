@@ -1,6 +1,6 @@
 /**
  * A UserEvent from calendar
- * @class
+ * @class UserEvent
  */
 export default class UserEvent {
     _id;

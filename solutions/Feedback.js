@@ -1,9 +1,9 @@
-import AssignmentEvent from "./AssignmentEvent";
-import TimeSlot from "./TimeSlot";
+import AssignmentEvent from "./AssignmentEvent.js";
+import TimeSlot from "./TimeSlot.js";
 
 /**
  * A Feedback for an assignment event
- * @class
+ * @class Feedback
  */
 export default class Feedback {
     _event;

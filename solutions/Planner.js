@@ -7,7 +7,7 @@ import TimeSlot from "./TimeSlot.js";
 
 /**
  * The Planner - orchestrator of this system
- * @class
+ * @class Planner
  */
 export default class Planner {
     _user_events;

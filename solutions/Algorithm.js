@@ -1,9 +1,9 @@
-import AssignmentEvent from "./AssignmentEvent";
-import Feedback from "./Feedback";
+import AssignmentEvent from "./AssignmentEvent.js";
+import Feedback from "./Feedback.js";
 
 /**
  * The algorithm for determining total study hours and adapting based on feedback.
- * @class
+ * @class Algorithm
  */
 export default class Algorithm {
     static _instance;

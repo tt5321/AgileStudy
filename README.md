@@ -1,7 +1,14 @@
 # AgileStudy Planner
 A study planner system that automatically schedules study time on your calendar based on your expectations for study quality, assignment deadlines, and your personal characteristics. The system includes a feedback mechanism that helps it learn personal learning patterns, and becomes more personalized over time.
 ## Setting up
-TBD
+```
+git clone <url> <project_folder>
+cd <project_folder>
+```
+To run a basic test please run
+```
+node main.js
+```
 ## Coder
 Tiantian
 ## Features
@@ -27,4 +34,4 @@ TBD
 #### Use of AI In Design
 Please see the "Index: Use of AI" part of the Business Requirement & Design document
 #### Use of AI In Implementation
-TBD
+Please see Reference_For_Code.md

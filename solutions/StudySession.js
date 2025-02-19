@@ -3,7 +3,7 @@ import UserEvent from "./UserEvent.js";
 
 /**
  * A StudySession event
- * @class
+ * @class StudySession
  */
 export default class StudySession extends UserEvent {
     _study_plan;

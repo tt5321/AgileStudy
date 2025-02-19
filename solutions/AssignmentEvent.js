@@ -6,7 +6,7 @@ import TimeSlot from "./TimeSlot.js";
 
 /**
  * An Assignemnt event from calendar
- * @class
+ * @class AssignmentEvent
  */
 export default class AssignmentEvent extends UserEvent {
     _desired_study_quality;

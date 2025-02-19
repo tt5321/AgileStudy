@@ -1,6 +1,6 @@
 /**
  * A TimeSlot with a start time and an end time
- * @class
+ * @class TimeSlot
  */
 export default class TimeSlot {
     _start;

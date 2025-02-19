@@ -1,6 +1,6 @@
 /**
  * The Preference setting
- * @class
+ * @class Preference
  */
 export default class Preference {
     static _instance;

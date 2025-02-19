@@ -1,17 +1,17 @@
-/**
- * This main.js tests different scenarios of event changes, assuming these event changes come from a webhood of an external calendar,
- * as well as modifying preference and providing feedback
- * It prints out the information of events, you can see the automatic changes of study sessions based on these changes
- */
 import AssignmentEvent from "./solutions/AssignmentEvent.js";
 import Planner from "./solutions/Planner.js";
 import StudySession from "./solutions/StudySession.js";
 import TimeSlot from "./solutions/TimeSlot.js";
 import UserEvent from "./solutions/UserEvent.js";
+/**
+ * This main.js tests different scenarios of event changes, assuming these event changes come from a webhood of an external calendar,
+ * as well as modifying preference and providing feedback
+ * It prints out the information of events, you can see the automatic changes of study sessions based on these changes
+ */
 
 /**
  * A function that prints out information of events in an array
- * @param {Array<UserEvent|AssignmentEvent|StudySessio>} events
+ * @param {Array<UserEvent|AssignmentEvent|StudySession>} events
  * @returns {void} Nothing 
  */
 function toString(events) {
@@ -56,7 +56,7 @@ const planner = new Planner(exist_events);
 // toString(planner.study_sessions);
 
 
-console.log(`\n1. reate a user event:`);
+console.log(`\n1. create a user event:`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -69,11 +69,11 @@ planner.sync(
             }
     }
 )
-// toString(planner.user_events);
-// toString(planner.assignments);
-// toString(planner.study_sessions);
+toString(planner.user_events);
+toString(planner.assignments);
+toString(planner.study_sessions);
 
-console.log(`\nu2. update a user event:`);
+console.log(`\n2. update a user event:`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -86,9 +86,9 @@ planner.sync(
             }
     }
 )
-// toString(planner.user_events);
-// toString(planner.assignments);
-// toString(planner.study_sessions);
+toString(planner.user_events);
+toString(planner.assignments);
+toString(planner.study_sessions);
 
 console.log(`\n3. delete a user event:`);
 planner.sync(
@@ -202,9 +202,9 @@ planner.sync(
     }
 )
 
-// toString(planner.user_events);
-// toString(planner.assignments);
-// toString(planner.study_sessions);
+toString(planner.user_events);
+toString(planner.assignments);
+toString(planner.study_sessions);
 
 console.log(`\n9. update studysession:`);
 planner.sync(
