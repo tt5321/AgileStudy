@@ -1,6 +1,19 @@
+/**
+ * This main.js tests different scenarios of event changes, assuming these event changes come from a webhood of an external calendar,
+ * as well as modifying preference and providing feedback
+ * It prints out the information of events, you can see the automatic changes of study sessions based on these changes
+ */
+import AssignmentEvent from "./solutions/AssignmentEvent.js";
 import Planner from "./solutions/Planner.js";
+import StudySession from "./solutions/StudySession.js";
 import TimeSlot from "./solutions/TimeSlot.js";
+import UserEvent from "./solutions/UserEvent.js";
 
+/**
+ * A function that prints out information of events in an array
+ * @param {Array<UserEvent|AssignmentEvent|StudySessio>} events
+ * @returns {void} Nothing 
+ */
 function toString(events) {
     for (let event of events) {
         console.log(`id: ${event.id}`);
@@ -11,6 +24,7 @@ function toString(events) {
     }
 
 }
+/* Initialize with two existed user events*/
 let exist_events = [];
 exist_events.push({
     "type": "",
@@ -35,12 +49,14 @@ exist_events.push({
     }
 );
 
+/* Start the Planner*/
 const planner = new Planner(exist_events);
 // toString(planner.user_events);
 // toString(planner.assignments);
 // toString(planner.study_sessions);
 
-console.log(`\ncreate:`);
+
+console.log(`\n1. reate a user event:`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -57,7 +73,7 @@ planner.sync(
 // toString(planner.assignments);
 // toString(planner.study_sessions);
 
-console.log(`\nupdate:`);
+console.log(`\nu2. update a user event:`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -74,7 +90,7 @@ planner.sync(
 // toString(planner.assignments);
 // toString(planner.study_sessions);
 
-console.log(`\ndelete:`);
+console.log(`\n3. delete a user event:`);
 planner.sync(
     {
         "type": "deleted", // "created", "updated", "deleted"
@@ -92,7 +108,7 @@ toString(planner.assignments);
 toString(planner.study_sessions);
 
 
-console.log(`\ncreate assignment:`);
+console.log(`\n4. create an assignment:`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -112,7 +128,7 @@ toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 
-console.log(`\nupdate assignment:`);
+console.log(`\n5. update an assignment:`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -132,7 +148,7 @@ toString(planner.assignments);
 toString(planner.study_sessions);
 
 
-console.log(`\ndelete assignment:`);
+console.log(`\n6. delete an assignment:`);
 planner.sync(
     {
         "type": "deleted", // "created", "updated", "deleted"
@@ -152,7 +168,7 @@ toString(planner.assignments);
 toString(planner.study_sessions);
 
 
-console.log(`\ncreate assignment-2:`);
+console.log(`\n7. create assignment-2:`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -167,13 +183,12 @@ planner.sync(
             }
     }
 )
-
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 console.log(planner.assignments[0].study_plan);
 
-console.log(`\ncreate studysession:`);
+console.log(`\n8. create a studysession (prohibited):`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -191,7 +206,7 @@ planner.sync(
 // toString(planner.assignments);
 // toString(planner.study_sessions);
 
-console.log(`\nupdate studysession:`);
+console.log(`\n9. update studysession:`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -208,7 +223,7 @@ toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 
-console.log(`\ndelete studysession:`);
+console.log(`\n10. delete a studysession:`);
 planner.sync(
     {
         "type": "deleted", // "created", "updated", "deleted"
@@ -225,7 +240,7 @@ toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 
-console.log(`\ncreate conflict user event:`);
+console.log(`\n11. create a user event that conflicts with an existed study session:`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -242,7 +257,7 @@ toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 
-console.log(`\nupdate conflict user event:`);
+console.log(`\n12. update an user event that will conflicts with an existed study session:`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -259,20 +274,20 @@ toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 
-console.log(`\nmodify preference - minimum_duration:`);
+console.log(`\n13. modify preference - minimum_duration:`);
 planner.modify_preference("minimum", 30);
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 
-console.log(`\nmodify preference - blocked_times:`);
+console.log(`\n14. modify preference - blocked_times:`);
 planner.modify_preference("block_times", ["01:00-09:00"]);
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
 
 
-console.log(`\nprovide feedback:`);
+console.log(`\n15. provide feedback:`);
 let actual_times = [new TimeSlot("2025-02-18T17:00:00Z", "2025-02-18T17:00:00Z"), 
                 new TimeSlot("2025-02-19T17:00:00Z", "2025-02-19T18:00:00Z")];
 planner.provide_feedback("5", actual_times, 0.8);
@@ -281,7 +296,7 @@ toString(planner.assignments);
 toString(planner.study_sessions);
 
 
-console.log(`\ncreate assignment:`);
+console.log(`\n16. create a new assignment (total planned time increase):`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
