@@ -19,7 +19,25 @@ Tiantian
 5. Automatically scheduled study sessions can be freely modified or deleted by users.
 6. New user event that conflicts with a current study session will triger a re-assignment of the study sessions.
 ## Implementations
-TBD
+**Classes**
+./solutions/
+    Algorithm.js
+    AssignmentEvent.js
+    Feedback.js
+    Planner.js
+    Preference.js
+    Scheduler.js
+    StudyPlan.js
+    StudySession.js
+    TimeSlot.js
+    UserEvent.js
+**Test**
+main.js
+**Documentation**
+README.md
+OOPDoc.md
+Reference_For_Code.md
+
 ## Links
 ### Business Requirement & Design
 https://docs.google.com/document/d/1abc1gMzMHnemnLY11MnZFfONOnCetKsnhX8Nu0dClZ8/edit?usp=sharing
