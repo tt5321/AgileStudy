@@ -228,6 +228,11 @@ export default class AssignmentEvent extends UserEvent {
         this._feedback = new Feedback(this);
     }
 ...
+    create_studyplan(){
+        const algo = new Algorithm();
+        algo.generate_plan(this);
+    }
+
 }
 // Usage (example, not in code):
 const event1 = new UserEvent({
@@ -250,7 +255,7 @@ const id_userevent = event1.id; //1
 const id_assign = event2.id; //2
 ```
 
-**Explanation:** The getter method for UserEvent and its subclass AssignmentEvent can be used interchangebly.
+**Explanation:** The getter method for UserEvent and its subclass AssignmentEvent can be used interchangebly. Also, AssignmentEvent can expand its own method, like create_studyplan.
 
 **Violation Example:**
 If we check types manually instead of using polymorphism, it would be bad practice.
@@ -378,48 +383,68 @@ export default class Algorithm {
 ### 2. Open-Closed Principle
 **Example: Preference.js line42**
 ```
-export default class Preference {
-    ...
-    set block_times(times){
-        if (times.every(item => typeof(item) === "string") == true) {
-            this._block_study_times = times;
-        } else {
-            console.log('Invalid times. Block times should be ["00:00-08:00", "13:00-14:00"]');
-        }
+// In UserEvent.js
+export default class UserEvent {
+    _id;
+    _title;
+    _start_time;
+    _end_time;
+    _type;
+
+    constructor({id, title, start_time, end_time, type} = {}) {
+        this._id = id;
+        this._title = title;
+        this._start_time = start_time;
+        this._end_time = end_time;
+        this._type = type;
     }
-    ... 
-    set minimum(value){
-        if (value >= 30) {
-            this._minimum_session_duration = value;
-        } else {
-            console.log("Invalid value. Minimum durations should be greater than or equal to 30 miniutes");
-        }
+    
+    get type() {
+        return this._type;
     }
+
 }
 
-export default class Planner {
+// In AssignmentEvent.js
+export default class AssignmentEvent extends UserEvent {
     ...
-    modify_preference(type, value){
-        if (type === "block_times"){
-            this._preference.block_times = value;
-        } else if (type === "minimum") {
-            this._preference.minimum = value;
-        } else {
-            console.log("Invalid preference type");
-            return;
-        }
-        ...
-    }
 }
-//Usage:
-planner.modify_preference("minimum", 30); //main.js line278
-planner.modify_preference("block_times", ["01:00-09:00"]); //main.is line284
+
+// In StudySession.js
+export default class StudySession extends UserEvent {
+    ...
+}
 ```
-**Explanation** If there is a new preference criteria added, I can add another setter function in Preference, and add another `else if` in the modify_preference function to call the setter. (Maybe not a good example.)
+**Explanation** If there is a new type of calendar event, I can easily add a new type of event by creating another class that extendsthe UserEvent class, by passing the type to the constructor.
 
 **Violation:**
 ```
+// In UserEvent.js
+export default class UserEvent {
+    _id;
+    _title;
+    _start_time;
+    _end_time;
+    _type;
 
+    constructor({id, title, start_time, end_time} = {}) {
+        this._id = id;
+        this._title = title;
+        this._start_time = start_time;
+        this._end_time = end_time;
+    }
+
+    // every time a subclass is created, get type() needs to be modified
+    get type() {
+        if (this instanceof AssignmentEvent) {
+            return "assignment";
+        } else if (this instanceof StudySession) { 
+            return "studysession";
+        } else {
+            return "userevent";
+        }
+    }
+}
 ```
 
 ---
@@ -538,44 +563,95 @@ const id_assign = event2.id; //Error
 
 ### 4. Interface Segregation Principle
 **Example:**
-```python
-class Printer:
-    def print(self):
-        pass
-
-class Scanner:
-    def scan(self):
-        pass
 ```
+// In UserEvent.js
+export default class UserEvent {
+    _id;
+    _title;
+    _start_time;
+    _end_time;
+    _type;
+    ...
+}
 
-**Violation:**
-```python
-class BadMachine:
-    def print(self):
-        pass
-    def scan(self):
-        pass  # Forces unused implementations
+// In AssignmentEvent.js
+export default class AssignmentEvent extends UserEvent {
+    _desired_study_quality;
+    _assignement_description;
+    _study_plan;
+    _feedback;
+    ...
+}
+
+// In StudySession.ks
+export default class StudySession extends UserEvent {
+    _study_plan;
+    _change;
+    ...
+}
+
+```
+**Explanation:** The UserEvent only has the basic attributes instead contains all the attributes an event can possible have, such as the assignment_description of AssignmentEvent. It only contains what it needs.
+
+**Violation:** 
+```
+// In UserEvent.js
+export default class UserEvent {
+    _id;
+    _title;
+    _start_time;
+    _end_time;
+    _type;
+    _desired_study_quality;
+    _assignement_description;
+    _study_plan;
+    _feedback;
+     _change;
+    ...
+}
 ```
 
 ---
 
 ### 5. Dependency Inversion Principle (DIP)
 **Example:**
-```python
-class Database:
-    def save(self):
-        pass
-
-class UserService:
-    def __init__(self, db: Database):
-        self.db = db
 ```
+export default class Feedback {
+    ...
+    constructor(event){
+        this._event = event;
+    }
+
+    ...
+    calculate_utilization_rate(){
+        const plan = this._event.study_plan;
+        const planned_time = plan.planned_time;
+        this._additional_time = this._total_actual_time - planned_time;
+        this._utilization_rate = this._total_actual_time / planned_time;
+    }
+}
+//In Algorithm.js
+import Feedback from "./Feedback.js";
+export default class Algorithm {
+    ...
+    learn(feedback){
+        this._overall_utilization_rate = this._overall_utilization_rate * 0.6 + feedback.utilization_rate * 0.4;
+        this._overall_learning_speed = this._overall_learning_speed * 0.6 + feedback.learning_speed * 0.4;
+    }
+}
+```
+**Explanation:** Altough it is no completely follow DIP, it does somehow. The Algorithm depends on Feedback instead of AssignmentEvent or StudySession. If anything with the states of AssignmentEvent or StudySession, these changes will not affect Algorithm.
 
 **Violation:**
-```python
-class BadUserService:
-    def __init__(self):
-        self.db = MySQLDatabase()  # Hardcoded dependency
+```
+import AssignmentEvent from "./AssignmentEvent.js";
+export default class Algorithm {
+    ...
+    learn(assignment){
+        this._overall_utilization_rate = this._overall_utilization_rate * 0.6 + assignment.feedback.utilization_rate * 0.4;
+        this._overall_learning_speed = this._overall_learning_speed * 0.6 + assignment.feedback.learning_speed * 0.4;
+    }
+}
 ```
 
 ---
@@ -647,5 +723,47 @@ class Planner{
 ...
 
 ---
+```
+
+### 3. Factory
+**Example:**
+```
+    sync(event_data) {
+        const type = event_data.eventType; 
+        const op = event_data.type;
+        const details = event_data.details;
+
+        switch (type) {
+            case 'normal':
+              this._handler_userevent_change(op, details);
+              break;
+            case 'studysession':
+              this._handler_studysession_change(op, details);
+              break;
+            case 'assignment':
+                this._handler_assignment_change(op, details);
+              break;
+            default:
+              console.log('Unknown event type');
+          }
+
+        console.log('Synchronization complete.');
+    }
+```
+**Explanation:** This might not be a complete implmentation of factory pattern, but maybe somehow similar. The sync function accepts all data event, and calls different handlers by identifying different types of event. sync acts like a factory.
+
+**Violation:**
+```
+sync_user_event(op, details){
+    ...
+}
+sync_assignment (op, details){
+    ...
+}
+
+sync_study_session(op, details){
+    ...
+}
+```
 
 

@@ -413,4 +413,15 @@ Model: ChatGPT 4o
 Used the template and modifed.
 
 
+### 7. Use AI to check example of Polymorphism, OCP, ISP, DIP, factory pattern
+**Prompt**
+Please analyze my code. Does any code block follow Polymorphism, OCP, ISP, DIP, factory pattern?
+
+**Model**
+Model: ChatGPT 4o
+
+**Use**
+Used the responses as reference.
+
+
 
