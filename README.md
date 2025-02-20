@@ -77,6 +77,7 @@ Tiantian
     - There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
     - There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
 - Test Cases:
+
     0. Create UserEvent objects for existing events
     1. Create a user event
     2. Update a user event
