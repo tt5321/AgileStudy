@@ -284,7 +284,7 @@ export default class Planner {
                 title: details.summary,
                 start_time: new Date(details.start.dateTime),
                 end_time: new Date(details.end.dateTime),
-                quality: details.quality,
+                quality: Number(details.quality),
                 description: details.description
             })
             this._assignments.push(event);
@@ -304,6 +304,8 @@ export default class Planner {
                     event.title = details.summary;
                     event.start_time = new Date(details.start.dateTime);
                     event.end_time = new Date(details.end.dateTime);
+                    event.quality = Number(details.quality);
+                    event.description = details.description;
                     // delete the old sessions
                     this._sync_back(event.study_plan.sessions, "deleted");
                     this._study_sessions = this._study_sessions.filter(s => !event.study_plan.sessions.includes(s));

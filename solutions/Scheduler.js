@@ -37,7 +37,7 @@ export default class Scheduler{
         const expected_duration = 2 * min_duration;
 
         /* Find availalle free slots with minumum duration of study session */
-        let available_slots = this._find_availble_times_with_min_durations(events, new Date(), deadline, min_duration);
+        let available_slots = this._find_availble_times_with_min_durations(events, new Date("2025-02-18T08:00:00Z"), deadline, min_duration);
 
         /* Exclude the block times and arranged the free slots by day */
         let free_slots = this._exclude_block_times(available_slots, min_duration);
@@ -157,7 +157,7 @@ export default class Scheduler{
     reallocate_session(session, events){
         const deadline = session.study_plan.assignment.end_time;
         const session_duration = (session.end_time - session.start_time) / (1000 * 60);
-        let available_slots = this._find_availble_times_with_min_durations(events, new Date(), deadline, session_duration);
+        let available_slots = this._find_availble_times_with_min_durations(events, new Date("2025-02-18T08:00:00Z"), deadline, session_duration);
         let free_slots = this._exclude_block_times(available_slots, session_duration);
         if(free_slots.length > 0) {
             session.start_time = free_slots[0].start;

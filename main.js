@@ -51,12 +51,15 @@ exist_events.push({
 
 /* Start the Planner*/
 const planner = new Planner(exist_events);
-// toString(planner.user_events);
-// toString(planner.assignments);
-// toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
+console.log(`0. Show existing events:`);
+toString(planner.user_events);
+toString(planner.assignments);
+toString(planner.study_sessions);
 
 
-console.log(`\n1. create a user event:`);
+console.log(`\n1. Create a user event:`);
+console.log(`   Expectation: a user event with id 3 is added`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -72,8 +75,10 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n2. update a user event:`);
+console.log(`\n2. Update a user event:`);
+console.log(`   Expectation: the times of user event (id 3) are modified`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -89,8 +94,10 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n3. delete a user event:`);
+console.log(`\n3. Delete a user event:`);
+console.log(`   Expectation: user event (id 3) is deleted`);
 planner.sync(
     {
         "type": "deleted", // "created", "updated", "deleted"
@@ -108,7 +115,8 @@ toString(planner.assignments);
 toString(planner.study_sessions);
 
 
-console.log(`\n4. create an assignment:`);
+console.log(`\n4. Create an assignment:`);
+console.log(`   Expectation: an assignment event is added and a few study session events are automatically added`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -116,8 +124,8 @@ planner.sync(
         "details": {
             "id": "4",
             "summary": "Project1 Due",
-            "start": { "dateTime": "2025-02-21T23:50:00Z" },
-            "end": { "dateTime": "2025-02-21T23:59:00Z" },
+            "start": { "dateTime": "2025-02-27T23:50:00Z" },
+            "end": { "dateTime": "2025-02-27T23:59:00Z" },
             "quality": "2",
             "description": "Complete design and code implementation using OOP for a topic"
             }
@@ -127,8 +135,10 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n5. update an assignment:`);
+console.log(`\n5. Update an assignment:`);
+console.log(`   Expectation: The assignment event time and quality were updated, and the study sessions were recreated based on new plan`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -136,9 +146,9 @@ planner.sync(
         "details": {
             "id": "4",
             "summary": "Project1 Due",
-            "start": { "dateTime": "2025-02-24T23:50:00Z" },
-            "end": { "dateTime": "2025-02-24T23:59:00Z" },
-            "quality": "2",
+            "start": { "dateTime": "2025-02-28T23:50:00Z" },
+            "end": { "dateTime": "2025-02-28T23:59:00Z" },
+            "quality": "3",
             "description": "Complete design and code implementation using OOP for a topic"
             }
     }
@@ -146,9 +156,11 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
 
-console.log(`\n6. delete an assignment:`);
+console.log(`\n6. Delete an assignment:`);
+console.log(`   Expectation: The assignment and the corresponding study sessions are deleted.`);
 planner.sync(
     {
         "type": "deleted", // "created", "updated", "deleted"
@@ -166,9 +178,10 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
 
-console.log(`\n7. create assignment-2:`);
+console.log(`\n7. Create assignment-2 (for the following tests):`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -186,9 +199,10 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
-console.log(planner.assignments[0].study_plan);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n8. create a studysession (prohibited):`);
+console.log(`\n8. Create a study session:`);
+console.log(`   Expectation: No change of the displayed events (creating a study session by user is prohibited).`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -205,8 +219,19 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n9. update studysession:`);
+console.log(`\n9. Update a study session:`);
+console.log(`   Expectation: the time of study session 1009 is modified, and the planned time in the study plan changes correspondingly.\n`);
+let assign_id5;
+for (let a of planner.assignments) {
+    if (a.id === 5) {
+        assign_id5 = a;
+        break;
+    }
+}
+console.log("\nBefore update, planned time of assignment id 5:");
+console.log(assign_id5.study_plan.planned_time);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -215,15 +240,21 @@ planner.sync(
             "id": "1009",
             "summary": "study session 1009 modified for Project 2",
             "start": { "dateTime": "2025-02-19T17:00:00Z" },
-            "end": { "dateTime": "2025-02-19T18:00:00Z" },
+            "end": { "dateTime": "2025-02-19T18:30:00Z" },
             }
     }
 )
-toString(planner.user_events);
-toString(planner.assignments);
+console.log("\nShow only study sessions:");
 toString(planner.study_sessions);
+console.log("After update, planned time of assignment id 5:");
+console.log(assign_id5.study_plan.planned_time);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n10. delete a studysession:`);
+
+console.log(`\n10. Delete a study session:`);
+console.log(`    Expectation: the time of study session 1009 is deleted, and the planned time in the study plan changes correspondingly.\n`);
+console.log("\nBefore deletion, planned time of assignment id 5:");
+console.log(assign_id5.study_plan.planned_time);
 planner.sync(
     {
         "type": "deleted", // "created", "updated", "deleted"
@@ -236,11 +267,15 @@ planner.sync(
             }
     }
 )
-toString(planner.user_events);
-toString(planner.assignments);
-toString(planner.study_sessions);
 
-console.log(`\n11. create a user event that conflicts with an existed study session:`);
+console.log("\nShow only study sessions:");
+toString(planner.study_sessions);
+console.log("After deleteion, planned time of assignment id 5:");
+console.log(assign_id5.study_plan.planned_time);
+console.log(`\n***********************************************************************`);
+
+console.log(`\n11. Create a user event that conflicts with an existed study session:`);
+console.log(`    Expectation: a user events is added, and the conflicted study session (id 1008) is reallocated.\n`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
@@ -256,8 +291,10 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n12. update an user event that will conflicts with an existed study session:`);
+console.log(`\n12. Update an user event that will conflicts with an existed study session:`);
+console.log(`    Expectation: the user events times are updated, and the conflicted study session (id 1008) is reallocated.\n`);
 planner.sync(
     {
         "type": "updated", // "created", "updated", "deleted"
@@ -273,46 +310,66 @@ planner.sync(
 toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n13. modify preference - minimum_duration:`);
-planner.modify_preference("minimum", 30);
-toString(planner.user_events);
+console.log(`\n13. Modify preference - minimum_duration (default 30 -> 70):`);
+console.log(`    Expectation: All the study sessions have been rescheduled with at least 70 miniutes duration\n`);
+planner.modify_preference("minimum", 70);
+console.log("\nShow only assignments and study sessions:");
+// toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
-console.log(`\n14. modify preference - blocked_times:`);
+console.log(`\n14. Modify preference - blocked_times (default ["00:00-08:00]->["01:00-09:00"]):`);
+console.log(`    Expectation: All the study sessions have been rescheduled and not allocated at [01:00-09:00]\n`);
 planner.modify_preference("block_times", ["01:00-09:00"]);
-toString(planner.user_events);
+console.log("\nShow only assignments and study sessions:");
+// toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
 
-console.log(`\n15. provide feedback:`);
+console.log(`\n15. Provide a feedback to assignment (for the folloing test 16)`);
 let actual_times = [new TimeSlot("2025-02-18T17:00:00Z", "2025-02-18T17:00:00Z"), 
                 new TimeSlot("2025-02-19T17:00:00Z", "2025-02-19T18:00:00Z")];
 planner.provide_feedback("5", actual_times, 0.8);
-toString(planner.user_events);
-toString(planner.assignments);
-toString(planner.study_sessions);
+console.log(`\n***********************************************************************`);
 
 
-console.log(`\n16. create a new assignment (total planned time increase):`);
+console.log(`\n16. Create a new assignment similar to similar to assignment id 5 (original planned time = 225):`);
+console.log(`    Expectation: The total planned time for the new assignment will increase because the algorithm has integrated the feedback from test 15\n`);
 planner.sync(
     {
         "type": "created", // "created", "updated", "deleted"
         "eventType": "assignment", // "normal", "studysession", "assignment"
         "details": {
             "id": "9",
-            "summary": "Project2 Due",
-            "start": { "dateTime": "2025-02-21T23:50:00Z" },
-            "end": { "dateTime": "2025-02-21T23:59:00Z" },
-            "quality": "2",
-            "description": "Complete design and code implementation using OOP for a topic"
+            "summary": "Project3 Due",
+            "start": { "dateTime": "2025-02-28T16:00:00Z" },
+            "end": { "dateTime": "2025-02-28T16:30:00Z" },
+            "quality": "3",
+            "description": "Complete design and code implementation using functional programming for a topic."
             }
     }
 )
-
-toString(planner.user_events);
+console.log("\nShow only assignments and study sessions:");
+// toString(planner.user_events);
 toString(planner.assignments);
 toString(planner.study_sessions);
-console.log(planner.assignments[1].study_plan);
+
+let assign_id9;
+for (let a of planner.assignments) {
+    if (a.id === 9) {
+        assign_id9 = a;
+        break;
+    }
+}
+console.log("Planned time for new assignment id 9:");
+console.log(assign_id9.study_plan.planned_time);
+
+console.log(`\n***********************************************************************`);
+
+console.log("Finally, display assignment id5 object");
+console.log(assign_id5.study_plan);
