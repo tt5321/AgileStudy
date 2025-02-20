@@ -3,7 +3,7 @@ A study planner system that automatically schedules study time on your calendar 
 ## Setting up
 ```
 git clone https://github.com/tt5321/AgileStudy.git agilestudy
-cd agilestudy
+cd agilestudy/
 npm install
 ```
 Note: If you cannot do `git clone`, please:
@@ -16,12 +16,14 @@ npm start
 ```
 Note: this equals to ```node main.js```
 ## Documentation
-./docs/<br>
-Business Requirement:
-1. v1: CS5010 Spring 2025 - Project 1_v1.pdf
-2. v2: BusinessRequirement_v2.pdf
-OOP examples: OOP_Documentation.md <br>
-JSDoc: out/<br>
+./docs/
+### Business Requirement:
+- **v1**: CS5010 Spring 2025 - Project 1_v1.pdf
+- **v2**: BusinessRequirement_v2.pdf
+### OOP examples:
+- OOP_Documentation.md
+### JSDoc: 
+- out/
 ## Coder
 Tiantian Ma
 
@@ -60,9 +62,9 @@ Tiantian Ma
 ### Classess
 - Planner: orchestrate all things when users create/update/delete an event
 - Calendar events will be categorized into 3 categories: UserEvent, AssignmentEvent, StudySession
-    - UserEvent: normal calendar event e.g. club meeting
-    - AssignmentEvent: assignment event e.g. HW3 due
-    - StudySession: study session event e.g. study session for HW3
+- UserEvent: normal calendar event e.g. club meeting
+- AssignmentEvent: assignment event e.g. HW3 due
+- StudySession: study session event e.g. study session for HW3
 - Algorithm: generate planned time and learns from feedback
 - Scheduler: allocate StudySession based on planned time
 - StudyPlan: contains planned time and study sessions for an assignment
@@ -73,8 +75,8 @@ Tiantian Ma
 ### Test
 - Use main.js for testing
 #### Assumptions:
-    - There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
-    - There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
+1. There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
+2. There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
 #### Test Cases:
     0. Create UserEvent objects for existing events
     1. Create a user event
@@ -107,6 +109,6 @@ https://www.figma.com/design/PDzRWOuGklJXukKSzWz2SR/CS5010-Project1-Mockup?node-
 ## Resources Reference
 ### Use of AI
 #### Use of AI In Design
-Please see the "Index: Use of AI" part of the Business Requirement & Design document
+- Please see the "Index: Use of AI" part of the Business Requirement & Design document
 #### Use of AI In Implementation
-Please see Reference_For_Code.md
+- Please see Reference_For_Code.md
