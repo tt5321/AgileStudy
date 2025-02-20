@@ -2,14 +2,19 @@
 A study planner system that automatically schedules study time on your calendar based on your expectations for study quality, assignment deadlines, and your personal characteristics. The system includes a feedback mechanism that helps it learn personal learning patterns, and becomes more personalized over time.
 ## Setting up
 ```
-git clone <url> <project_folder>
-cd <project_folder>
+git clone https://github.com/tt5321/AgileStudy.git agilestudy
+cd agilestudy
 npm install
 ```
+Note: If you cannot do `git clone`, please
+(1) download the zip file and unzip 
+(2) `npm install`
+
 To run all the test cases (output will be printed to the console)
 ```
-node main.js
+npm start
 ```
+Note: this equals to ```node main.js````
 ## Documentation
 ./docs/
 - Business Requirement:
@@ -46,11 +51,49 @@ Tiantian
 - main.js
 
 **Docs**
-- ./README.md,
-- ./docs/OOP_Documentation.md,
+- ./README.md
+- ./docs/OOP_Documentation.md
 - ./docs/Reference_For_Code.md
 - ./docs/CS5010 Spring 2025 - Project 1_v1.pdf
 - ./docs/BusinessRequirement_v2.pdf
+
+## Exaplanation of Classes and Tests
+**Classess**
+- Planner: orchestrate all things when users create/update/delete an event
+- Calendar events will be categorized into 3 categories: UserEvent, AssignmentEvent, StudySession
+    - UserEvent: normal calendar event e.g. club meeting
+    - AssignmentEvent: assignment event e.g. HW3 due
+    - StudySession: study session event e.g. study session for HW3
+- Algorithm: generate planned time and learns from feedback
+- Scheduler: allocate StudySession based on planned time
+- StudyPlan: contains planned time and study sessions for an assignment
+- Feedback: each assignment has a feedback
+- Preference: user preference, include block study times, minimum study duration
+- TimeSlot: an auxiliary class used in calculation available times for allocation 
+**Test**
+- Use main.js for testing
+- Assumptions:
+1. There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
+2. There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
+- Test Cases:
+Test Cases:
+0. Create UserEvent objects for existing events
+1. Create a user event
+2. Update a user event
+3. Delete a user event
+4. Create an assignment
+5. Update an assignment
+6. Delete an assignment
+7. Create another assignment (for the following tests)
+8. Create an study session (not allowed)
+9. Update an study session
+10. Delete an study session 
+11. Create a user event that conflicts with an existed study session
+12.  Update an user event that will conflicts with an existed study session
+13. Modify preference - minimum_duration
+14. Modify preference - blocked_times
+15. Provide a feedback to assignment
+16. Create a new assignment similar to similar to assignment created in case 7 after providing a feedback
 
 ## Links
 ### Business Requirement & Design
