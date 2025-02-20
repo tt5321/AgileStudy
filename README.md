@@ -18,8 +18,8 @@ Note: this equals to ```node main.js```
 ## Documentation
 ./docs/
 - Business Requirement:
-(1) v1: CS5010 Spring 2025 - Project 1_v1.pdf
-(2) v2: BusinessRequirement_v2.pdf
+1. v1: CS5010 Spring 2025 - Project 1_v1.pdf
+2. v2: BusinessRequirement_v2.pdf
 - OOP examples: OOP_Documentation.md
 - JSDoc: out/
 
@@ -70,13 +70,13 @@ Tiantian
 - Feedback: each assignment has a feedback
 - Preference: user preference, include block study times, minimum study duration
 - TimeSlot: an auxiliary class used in calculation available times for allocation 
+
 **Test**
 - Use main.js for testing
 - Assumptions:
 1. There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
 2. There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
 - Test Cases:
-Test Cases:
 0. Create UserEvent objects for existing events
 1. Create a user event
 2. Update a user event
