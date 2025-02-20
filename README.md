@@ -16,7 +16,7 @@ npm start
 ```
 Note: this equals to ```node main.js```
 ## Documentation
-./docs/
+Under ./docs/
 ### Business Requirement:
 - **v1**: CS5010 Spring 2025 - Project 1_v1.pdf
 - **v2**: BusinessRequirement_v2.pdf
@@ -73,7 +73,7 @@ Tiantian Ma
 - TimeSlot: an auxiliary class used in calculation available times for allocation 
 
 ### Test
-- Use main.js for testing
+Use main.js for testing
 #### Assumptions:
 1. There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
 2. There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
