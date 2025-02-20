@@ -4,7 +4,7 @@ import StudySession from "./solutions/StudySession.js";
 import TimeSlot from "./solutions/TimeSlot.js";
 import UserEvent from "./solutions/UserEvent.js";
 /**
- * This main.js tests different scenarios of event changes, assuming these event changes come from a webhood of an external calendar,
+ * This main.js tests different scenarios of event changes, assuming these event changes come from a webhook of an external calendar,
  * as well as modifying preference and providing feedback
  * It prints out the information of events, you can see the automatic changes of study sessions based on these changes
  */
@@ -338,7 +338,7 @@ planner.provide_feedback("5", actual_times, 0.8);
 console.log(`\n***********************************************************************`);
 
 
-console.log(`\n16. Create a new assignment similar to similar to assignment id 5 (original planned time = 225):`);
+console.log(`\n16. Create a new assignment similar to assignment id 5 (original planned time = 225):`);
 console.log(`    Expectation: The total planned time for the new assignment will increase because the algorithm has integrated the feedback from test 15\n`);
 planner.sync(
     {

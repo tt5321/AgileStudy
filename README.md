@@ -4,13 +4,23 @@ A study planner system that automatically schedules study time on your calendar 
 ```
 git clone <url> <project_folder>
 cd <project_folder>
+npm install
 ```
-To run a basic test please run
+To run all the test cases (output will be printed to the console)
 ```
 node main.js
 ```
+## Documentation
+./docs/
+- Business Requirement:
+(1) v1: CS5010 Spring 2025 - Project 1_v1.pdf
+(2) v2: BusinessRequirement_v2.pdf
+- OOP examples: OOP_Documentation.md
+- JSDoc: out/
+
 ## Coder
 Tiantian
+
 ## Features
 1. When a user marks an assignment due-date event on the calendar, the system automatically analyzes the deadlie, the assignement description, the user’s desired study quality, and creates a personalized study plan. It automatically allocates study sessions on the calendar without conflicting with existing events.
 2. Users can set/modify preferences, including blocked study times, preferred study times, minimum study session duration.
@@ -21,26 +31,26 @@ Tiantian
 ## Implementations
 **Classes**
 ./solutions/
-
-    Algorithm.js,
-    AssignmentEvent.js,
-    Feedback.js,
-    Planner.js,
-    Preference.js,
-    Scheduler.js,
-    StudyPlan.js,
-    StudySession.js,
-    TimeSlot.js,
-    UserEvent.js
+- Algorithm.js
+- AssignmentEvent.js
+- Feedback.js
+- Planner.js
+- Preference.js
+- Scheduler.js
+- StudyPlan.js
+- StudySession.js
+- TimeSlot.js
+- UserEvent.js
 
 **Test**
-main.js
+- main.js
 
-**Documentation**
-
-README.md,
-OOPDoc.md,
-Reference_For_Code.md
+**Docs**
+- ./README.md,
+- ./docs/OOP_Documentation.md,
+- ./docs/Reference_For_Code.md
+- ./docs/CS5010 Spring 2025 - Project 1_v1.pdf
+- ./docs/BusinessRequirement_v2.pdf
 
 ## Links
 ### Business Requirement & Design
@@ -50,7 +60,8 @@ https://lucid.app/lucidchart/5c3524c7-0963-4b2d-9a4e-0852fd970371/edit?viewport_
 ### Mockups
 https://www.figma.com/design/PDzRWOuGklJXukKSzWz2SR/CS5010-Project1-Mockup?node-id=0-1&t=Ja1AW8kmkSjJUAwN-1
 ### Video
-TBD
+- Introductory Video: https://youtu.be/KiWLQ1hNssY
+- Detailed Explanation of code: https://youtu.be/ASok6bfpmAU
 ## Resources Reference
 ### Use of AI
 #### Use of AI In Design

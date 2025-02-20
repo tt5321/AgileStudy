@@ -3,7 +3,8 @@ import TimeSlot from "./TimeSlot.js";
 
 /**
  * A Feedback for an assignment event
- * @class Feedback
+ * @module Feedback
+ * @class
  */
 export default class Feedback {
     _event;
@@ -16,6 +17,7 @@ export default class Feedback {
 
     /**
      * A constructor function
+     * @constructor
      * @param {AssignmentEvent} event
      */
     constructor(event){

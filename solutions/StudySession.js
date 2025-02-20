@@ -3,7 +3,8 @@ import UserEvent from "./UserEvent.js";
 
 /**
  * A StudySession event
- * @class StudySession
+ * @module StudySession
+ * @class
  */
 export default class StudySession extends UserEvent {
     _study_plan;
@@ -12,6 +13,7 @@ export default class StudySession extends UserEvent {
     /**
      * A constructor
      * Note: type would be automatically configured as "studysession"
+     * @constructor
      * @param {StudyPlan} study_plan
      * @param {number} id
      * @param {string} title
@@ -36,7 +38,7 @@ export default class StudySession extends UserEvent {
      * A getter function for chagne
      * @returns {string|undefined} change - a note that tells if this session is manually modified by user
      */    
-    get chagne(){
+    get change(){
         return this._change;
     }
 

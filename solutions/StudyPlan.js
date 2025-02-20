@@ -3,7 +3,8 @@ import StudySession from "./StudySession.js";
 
 /**
  * An StudyPlan for an assignment event
- * @class StudyPlan
+ * @module StudyPlan
+ * @class
  */
 export default class StudyPlan{
     _assignment;
@@ -12,6 +13,7 @@ export default class StudyPlan{
 
     /**
      * A constructor function
+     * @constructor
      * @param {AssignmentEvent} assignment 
      */
     constructor(assignment) {

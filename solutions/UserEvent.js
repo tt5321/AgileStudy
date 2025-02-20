@@ -1,6 +1,7 @@
 /**
  * A UserEvent from calendar
- * @class UserEvent
+ * @module UserEvent
+ * @class
  */
 export default class UserEvent {
     _id;
@@ -11,6 +12,7 @@ export default class UserEvent {
 
     /**
      * A constructor function
+     * @constructor
      * @param {number} id
      * @param {string} title
      * @param {Date} start_time

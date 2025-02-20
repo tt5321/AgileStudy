@@ -1,6 +1,7 @@
 /**
  * A TimeSlot with a start time and an end time
- * @class TimeSlot
+ * @module TimeSlot
+ * @class
  */
 export default class TimeSlot {
     _start;
@@ -8,6 +9,7 @@ export default class TimeSlot {
 
     /**
      * A constructor function
+     * @constructor
      * @param {string} start - start timee.g. "2025-02-18T17:00:00Z"
      * @param {string} end - end time
      */

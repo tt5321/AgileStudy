@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>AgileStudy Planner</h1>
+<p>A study planner system that automatically schedules study time on your calendar based on your expectations for study quality, assignment deadlines, and your personal characteristics. The system includes a feedback mechanism that helps it learn personal learning patterns, and becomes more personalized over time.</p>
+<h2>Setting up</h2>
+<pre class="prettyprint source"><code>git clone &lt;url> &lt;project_folder>
+cd &lt;project_folder>
+npm install
+</code></pre>
+<p>To run all the test cases (output will be printed to the console)</p>
+<pre class="prettyprint source"><code>node main.js
+</code></pre>
+<h2>Documentation</h2>
+<p>./docs/</p>
+<ul>
+<li>Business Requirement:
+(1) v1: CS5010 Spring 2025 - Project 1_v1.pdf
+(2) v2: BusinessRequirement_v2.pdf</li>
+<li>OOP examples: OOP_Documentation.md</li>
+<li>JSDoc: out/</li>
+</ul>
+<h2>Coder</h2>
+<p>Tiantian</p>
+<h2>Features</h2>
+<ol>
+<li>When a user marks an assignment due-date event on the calendar, the system automatically analyzes the deadlie, the assignement description, the user’s desired study quality, and creates a personalized study plan. It automatically allocates study sessions on the calendar without conflicting with existing events.</li>
+<li>Users can set/modify preferences, including blocked study times, preferred study times, minimum study session duration.</li>
+<li>The system includes a feedback mechanism to track the actual time users spend on their study sessions.</li>
+<li>The system learns from the feedbacks about users’ personal characteristics, such as learning speed and time management efficienc, and continuously refines its model for future study plans.</li>
+<li>Automatically scheduled study sessions can be freely modified or deleted by users.</li>
+<li>New user event that conflicts with a current study session will triger a re-assignment of the study sessions.</li>
+</ol>
+<h2>Implementations</h2>
+<p><strong>Classes</strong>
+./solutions/</p>
+<ul>
+<li>Algorithm.js</li>
+<li>AssignmentEvent.js</li>
+<li>Feedback.js</li>
+<li>Planner.js</li>
+<li>Preference.js</li>
+<li>Scheduler.js</li>
+<li>StudyPlan.js</li>
+<li>StudySession.js</li>
+<li>TimeSlot.js</li>
+<li>UserEvent.js</li>
+</ul>
+<p><strong>Test</strong></p>
+<ul>
+<li>main.js</li>
+</ul>
+<p><strong>Docs</strong></p>
+<ul>
+<li>./README.md,</li>
+<li>./docs/OOP_Documentation.md,</li>
+<li>./docs/Reference_For_Code.md</li>
+<li>./docs/CS5010 Spring 2025 - Project 1_v1.pdf</li>
+<li>./docs/BusinessRequirement_v2.pdf</li>
+</ul>
+<h2>Links</h2>
+<h3>Business Requirement &amp; Design</h3>
+<p>https://docs.google.com/document/d/1abc1gMzMHnemnLY11MnZFfONOnCetKsnhX8Nu0dClZ8/edit?usp=sharing</p>
+<h3>UML Diagram</h3>
+<p>https://lucid.app/lucidchart/5c3524c7-0963-4b2d-9a4e-0852fd970371/edit?viewport_loc=-665%2C85%2C3290%2C1566%2CHWEp-vi-RSFO&amp;invitationId=inv_c16e9371-4793-4b2f-896f-311fc6110f71</p>
+<h3>Mockups</h3>
+<p>https://www.figma.com/design/PDzRWOuGklJXukKSzWz2SR/CS5010-Project1-Mockup?node-id=0-1&amp;t=Ja1AW8kmkSjJUAwN-1</p>
+<h3>Video</h3>
+<ul>
+<li>Introductory Video: https://youtu.be/KiWLQ1hNssY</li>
+<li>Detailed Explanation of code: https://youtu.be/ASok6bfpmAU</li>
+</ul>
+<h2>Resources Reference</h2>
+<h3>Use of AI</h3>
+<h4>Use of AI In Design</h4>
+<p>Please see the &quot;Index: Use of AI&quot; part of the Business Requirement &amp; Design document</p>
+<h4>Use of AI In Implementation</h4>
+<p>Please see Reference_For_Code.md</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Algorithm.html">Algorithm</a></li><li><a href="AssignmentEvent.html">AssignmentEvent</a></li><li><a href="Feedback.html">Feedback</a></li><li><a href="Planner.html">Planner</a></li><li><a href="Preference.html">Preference</a></li><li><a href="Scheduler.html">Scheduler</a></li><li><a href="StudyPlan.html">StudyPlan</a></li><li><a href="StudySession.html">StudySession</a></li><li><a href="TimeSlot.html">TimeSlot</a></li><li><a href="UserEvent.html">UserEvent</a></li><li><a href="module.exports_module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_detect_conflict">_detect_conflict</a></li><li><a href="global.html#_exclude_block_times">_exclude_block_times</a></li><li><a href="global.html#_find_availble_times">_find_availble_times</a></li><li><a href="global.html#_find_availble_times_with_min_durations">_find_availble_times_with_min_durations</a></li><li><a href="global.html#_get_existing_events">_get_existing_events</a></li><li><a href="global.html#_get_next_id">_get_next_id</a></li><li><a href="global.html#_handler_assignment_change">_handler_assignment_change</a></li><li><a href="global.html#_handler_studysession_change">_handler_studysession_change</a></li><li><a href="global.html#_handler_userevent_change">_handler_userevent_change</a></li><li><a href="global.html#_sync_back">_sync_back</a></li><li><a href="global.html#_warn">_warn</a></li><li><a href="global.html#actual_times">actual_times</a></li><li><a href="global.html#additonal_time">additonal_time</a></li><li><a href="global.html#allocate_sessions">allocate_sessions</a></li><li><a href="global.html#assignment">assignment</a></li><li><a href="global.html#assignments">assignments</a></li><li><a href="global.html#block_times">block_times</a></li><li><a href="global.html#calculate_learning_speed">calculate_learning_speed</a></li><li><a href="global.html#calculate_total_time">calculate_total_time</a></li><li><a href="global.html#calculate_utilization_rate">calculate_utilization_rate</a></li><li><a href="global.html#change">change</a></li><li><a href="global.html#create_feedback">create_feedback</a></li><li><a href="global.html#create_studyplan">create_studyplan</a></li><li><a href="global.html#description">description</a></li><li><a href="global.html#end">end</a></li><li><a href="global.html#end_time">end_time</a></li><li><a href="global.html#feedback">feedback</a></li><li><a href="global.html#generate_plan">generate_plan</a></li><li><a href="global.html#id">id</a></li><li><a href="global.html#learn">learn</a></li><li><a href="global.html#learning_speed">learning_speed</a></li><li><a href="global.html#minimum">minimum</a></li><li><a href="global.html#modify_preference">modify_preference</a></li><li><a href="global.html#planned_time">planned_time</a></li><li><a href="global.html#provide_feedback">provide_feedback</a></li><li><a href="global.html#quality">quality</a></li><li><a href="global.html#reallocate_session">reallocate_session</a></li><li><a href="global.html#sessions">sessions</a></li><li><a href="global.html#start">start</a></li><li><a href="global.html#start_time">start_time</a></li><li><a href="global.html#study_plan">study_plan</a></li><li><a href="global.html#study_sessions">study_sessions</a></li><li><a href="global.html#sync">sync</a></li><li><a href="global.html#title">title</a></li><li><a href="global.html#totaltime">totaltime</a></li><li><a href="global.html#type">type</a></li><li><a href="global.html#user_events">user_events</a></li><li><a href="global.html#utilization_rate">utilization_rate</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Feb 20 2025 12:07:29 GMT-0800 (Pacific Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

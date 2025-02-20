@@ -3,7 +3,8 @@ import Feedback from "./Feedback.js";
 
 /**
  * The algorithm for determining total study hours and adapting based on feedback.
- * @class Algorithm
+ * @module Algorithm
+ * @class 
  */
 export default class Algorithm {
     static _instance;
@@ -12,6 +13,7 @@ export default class Algorithm {
 
     /**
      * A constructor in singular pattern
+     * @constructor
      */
     constructor() {
         if (Algorithm._instance){

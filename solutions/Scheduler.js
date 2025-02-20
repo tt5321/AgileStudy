@@ -6,7 +6,8 @@ import UserEvent from "./UserEvent.js";
 
 /**
  * The Scheduler to allocate study sessions events
- * @class Scheduler
+ * @module Scheduler
+ * @class
  */
 export default class Scheduler{
     static _instance;
@@ -14,6 +15,7 @@ export default class Scheduler{
 
     /**
      * A constructor in singular pattern
+     * @constructor
      */
     constructor() {
         if (Scheduler._instance){

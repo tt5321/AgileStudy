@@ -423,5 +423,5 @@ Model: ChatGPT 4o
 **Use**
 Used the responses as reference.
 
-
-
+## Other Reference
+1. Use for JSDoc config file reference: https://www.geeksforgeeks.org/introduction-to-jsdoc/

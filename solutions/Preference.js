@@ -1,6 +1,7 @@
 /**
  * The Preference setting
- * @class Preference
+ * @module Preference
+ * @class
  */
 export default class Preference {
     static _instance;
@@ -9,6 +10,7 @@ export default class Preference {
 
     /**
      * A constructor in singular pattern
+     * @constructor
      */
     constructor() {
         if (Preference._instance){

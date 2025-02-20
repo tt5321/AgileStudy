@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "node main.js",
-    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
+    "jsdoc": "node_modules/jsdoc/jsdoc.js -c jsdoc.json"
   },
   "repository": {
     "type": "git",

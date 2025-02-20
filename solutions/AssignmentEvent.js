@@ -6,7 +6,8 @@ import TimeSlot from "./TimeSlot.js";
 
 /**
  * An Assignemnt event from calendar
- * @class AssignmentEvent
+ * @module AssignmentEvent
+ * @class
  */
 export default class AssignmentEvent extends UserEvent {
     _desired_study_quality;
@@ -18,6 +19,7 @@ export default class AssignmentEvent extends UserEvent {
     /**
      * A constructor function
      * Note: type would be automatically configured as "assignment"
+     * @constructor
      * @param {number} quality
      * @param {string} description
      * @param {number} id

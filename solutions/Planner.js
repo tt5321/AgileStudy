@@ -7,7 +7,8 @@ import TimeSlot from "./TimeSlot.js";
 
 /**
  * The Planner - orchestrator of this system
- * @class Planner
+ * @module Planner
+ * @class
  */
 export default class Planner {
     _user_events;
@@ -18,6 +19,7 @@ export default class Planner {
 
     /**
      * A constructor function
+     * @constructor
      * @param {Array<{ type: string, eventType: string, details: { id: string, summary: string, start: { dateTime: string }, end: { dateTime: string } } }>} exist_events  - List of existing events 
      * exist_events example:
      * [{
