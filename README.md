@@ -73,11 +73,10 @@ Tiantian
 
 **Test**
 - Use main.js for testing
-- Assumptions:
+## Assumptions:
     - There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
     - There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
-- Test Cases:
-
+## Test Cases:
     0. Create UserEvent objects for existing events
     1. Create a user event
     2. Update a user event
@@ -86,9 +85,9 @@ Tiantian
     5. Update an assignment
     6. Delete an assignment
     7. Create another assignment (for the following tests)
-    8. Create an study session (not allowed)
-    9. Update an study session
-    10. Delete an study session 
+    8. Create a study session (not allowed)
+    9. Update a study session
+    10. Delete a study session 
     11. Create a user event that conflicts with an existed study session
     12.  Update an user event that will conflicts with an existed study session
     13. Modify preference - minimum_duration
