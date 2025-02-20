@@ -74,26 +74,26 @@ Tiantian
 **Test**
 - Use main.js for testing
 - Assumptions:
-1. There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
-2. There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
+    - There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
+    - There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
 - Test Cases:
-0. Create UserEvent objects for existing events
-1. Create a user event
-2. Update a user event
-3. Delete a user event
-4. Create an assignment
-5. Update an assignment
-6. Delete an assignment
-7. Create another assignment (for the following tests)
-8. Create an study session (not allowed)
-9. Update an study session
-10. Delete an study session 
-11. Create a user event that conflicts with an existed study session
-12.  Update an user event that will conflicts with an existed study session
-13. Modify preference - minimum_duration
-14. Modify preference - blocked_times
-15. Provide a feedback to assignment
-16. Create a new assignment similar to similar to assignment created in case 7 after providing a feedback
+    0. Create UserEvent objects for existing events
+    1. Create a user event
+    2. Update a user event
+    3. Delete a user event
+    4. Create an assignment
+    5. Update an assignment
+    6. Delete an assignment
+    7. Create another assignment (for the following tests)
+    8. Create an study session (not allowed)
+    9. Update an study session
+    10. Delete an study session 
+    11. Create a user event that conflicts with an existed study session
+    12.  Update an user event that will conflicts with an existed study session
+    13. Modify preference - minimum_duration
+    14. Modify preference - blocked_times
+    15. Provide a feedback to assignment
+    16. Create a new assignment similar to similar to assignment created in case 7 after providing a feedback
 
 ## Links
 ### Business Requirement & Design
