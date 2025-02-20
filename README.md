@@ -6,15 +6,15 @@ git clone https://github.com/tt5321/AgileStudy.git agilestudy
 cd agilestudy
 npm install
 ```
-Note: If you cannot do `git clone`, please
-(1) download the zip file and unzip 
-(2) `npm install`
+Note: If you cannot do `git clone`, please:
+1.  download the zip file and unzip 
+2. `npm install`
 
 To run all the test cases (output will be printed to the console)
 ```
 npm start
 ```
-Note: this equals to ```node main.js````
+Note: this equals to ```node main.js```
 ## Documentation
 ./docs/
 - Business Requirement:
