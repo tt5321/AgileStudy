@@ -16,15 +16,14 @@ npm start
 ```
 Note: this equals to ```node main.js```
 ## Documentation
-./docs/
-- Business Requirement:
+./docs/<br>
+Business Requirement:
 1. v1: CS5010 Spring 2025 - Project 1_v1.pdf
 2. v2: BusinessRequirement_v2.pdf
-- OOP examples: OOP_Documentation.md
-- JSDoc: out/
-
+OOP examples: OOP_Documentation.md <br>
+JSDoc: out/<br>
 ## Coder
-Tiantian
+Tiantian Ma
 
 ## Features
 1. When a user marks an assignment due-date event on the calendar, the system automatically analyzes the deadlie, the assignement description, the user’s desired study quality, and creates a personalized study plan. It automatically allocates study sessions on the calendar without conflicting with existing events.
@@ -58,7 +57,7 @@ Tiantian
 - ./docs/BusinessRequirement_v2.pdf
 
 ## Exaplanation of Classes and Tests
-**Classess**
+### Classess
 - Planner: orchestrate all things when users create/update/delete an event
 - Calendar events will be categorized into 3 categories: UserEvent, AssignmentEvent, StudySession
     - UserEvent: normal calendar event e.g. club meeting
@@ -71,12 +70,12 @@ Tiantian
 - Preference: user preference, include block study times, minimum study duration
 - TimeSlot: an auxiliary class used in calculation available times for allocation 
 
-**Test**
+### Test
 - Use main.js for testing
-## Assumptions:
+#### Assumptions:
     - There are some existing user events, in JSON formats, stored in an array of JSON objects, before the planner system starts
     - There is a web hook of the external calendar, and the AgileStudy Planner will receive an event change from the web hook. The event change is triggered when a user creates, deletes, or modifies a calendar event and is represented as a JSON object. 
-## Test Cases:
+#### Test Cases:
     0. Create UserEvent objects for existing events
     1. Create a user event
     2. Update a user event
