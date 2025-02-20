@@ -9,8 +9,8 @@ npm install
 Note: If you cannot do `git clone`, please:
 1.  download the zip file and unzip 
 2. `npm install`
-
-To run all the test cases (output will be printed to the console)
+## Run Test
+Output will be printed to the console
 ```
 npm start
 ```
